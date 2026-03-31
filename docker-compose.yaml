@@ -18,7 +18,7 @@ services:
     image: joindevops/cart:1.0.0
     container_name: cart 
     depends_on:
-    -redis 
+    - redis 
 
   frontend:
     build: ./frontend
