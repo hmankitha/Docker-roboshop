@@ -33,7 +33,10 @@ services:
     depends_on: 
     - mysql 
     - cart
-
+    environment:
+      CART_ENDPOINT: "cart:8080"
+      DB_HOST: "mysql"
+      
   payment:
     build: ./payment
     image: 7204492095/payment:1.4.0
