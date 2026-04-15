@@ -7,12 +7,16 @@ services:
     - mongodb
 
   user:
-    build: ./user
-    image: 7204492095/user:1.4.0
-    container_name: user
-    depends_on:
-    - redis
-    - mongodb
+  build: ./user
+  image: 7204492095/user:1.4.0
+  container_name: user
+  environment:
+    REDIS_HOST: "redis"
+    MONGO: "true"
+    MONGO_URL: "mongodb://mongodb:27017/users"
+  depends_on:
+  - redis
+  - mongodb
 
   cart:
     build: ./cart
