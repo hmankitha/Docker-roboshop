@@ -40,8 +40,8 @@ services:
       USER_HOST: "user"
       USER_PORT: "8080"
       AMQP_HOST: "rabbitmq"
-      AMPQ_USER: "roboshop"
-      AMPQ_PASS: "roboshop123"
+      AMQP_USER: "roboshop"      # ✅ fixed
+      AMQP_PASS: "roboshop123"  # ✅ fixed
     depends_on:
     - rabbitmq
     - cart
@@ -59,7 +59,6 @@ services:
     - cart
     - shipping
     - payment
-
 
   mongodb:
     build: ./mongodb
@@ -81,7 +80,6 @@ services:
     volumes:
     - mysql:/var/lib/mysql
 
-
   rabbitmq:
     image: rabbitmq:3
     environment: 
@@ -101,4 +99,4 @@ volumes:
   mongodb:
   redis:
   mysql:
-  rabbitmq:      
+  rabbitmq:
